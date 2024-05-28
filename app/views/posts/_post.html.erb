@@ -1,2 +1,6 @@
-<div id="<%= dom_id post %>">
+<div id="<%= dom_id post %>" style="background-color: rgba(0, 0, 0, 0.25); padding: 2px 16px;">
+    <% if user_signed_in? %>
+    <p><%= post.user.email %></p>
+    <% end %>
+    <p><%= post.body %></p>
 </div>

@@ -1,6 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Posts</h1>
+
+<% if user_signed_in? %>
+  <p>Welcome Home, <%= current_user.email %></p>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+  <%= link_to 'Sign in', new_user_session_path %>
+<% end %>
 
 <div id="posts">
   <% @posts.each do |post| %>
@@ -12,3 +17,4 @@
 </div>
 
 <%= link_to "New post", new_post_path %>
+
